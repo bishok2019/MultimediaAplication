@@ -16,9 +16,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
-# Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -123,10 +120,10 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
-MEDIA_ROOT =BASE_DIR/"media"
 EMAIL_HOST_PASSWORD=config('EMAIL_PASS')
 EMAIL_HOST_USER=config("EMAIL_USER")
 
+MEDIA_ROOT =BASE_DIR/"media"
 MEDIA_URL = '/media/'
 
 REST_FRAMEWORK = {
@@ -137,7 +134,7 @@ REST_FRAMEWORK = {
 
 from datetime import timedelta
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=60),
+    'ACCESS_TOKEN_LIFETIME': timedelta(days=1),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
     'ROTATE_REFRESH_TOKENS': True,
     'BLACKLIST_AFTER_ROTATION': True,

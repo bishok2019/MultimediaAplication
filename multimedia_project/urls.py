@@ -7,7 +7,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('account.urls')),
     path('blog/', include('blog.urls')),
-    # path('video/', include('video.urls')),
+    path('video/', include('video.urls')),
     # path('auth/', include('rest_framework.urls'))
 ]
 if settings.DEBUG:

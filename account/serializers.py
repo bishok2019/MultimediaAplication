@@ -54,6 +54,8 @@ class LoginSerializer(serializers.Serializer):
             user = authenticate(username=username, password=password)
             if not user:
                 raise serializers.ValidationError('Invalid username or password.')
+            if not hasattr(user, 'profile'):
+                raise serializers.ValidationError('No Profile for this current user.')
             if not user.is_active:
                 raise serializers.ValidationError('User account is disabled.')
             if not user.profile.is_email_verified:
