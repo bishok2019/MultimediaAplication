@@ -45,7 +45,7 @@ class VerifyEmailView(APIView):
             return Response({
                 'status': 'success',
                 'message': 'Email verified successfully',
-                'signin_url':'http://127.0.0.1:8000/auth/login/'
+                'signin_url':'http://127.0.0.1:8000/account/login/'
             }, status=status.HTTP_200_OK)
             
         except CustomUser.DoesNotExist:

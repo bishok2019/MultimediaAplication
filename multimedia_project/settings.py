@@ -22,6 +22,9 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    
+    'daphne',
+
     'django.contrib.staticfiles',
     'account',
     'blog',
@@ -29,6 +32,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework_simplejwt',
     'rest_framework_simplejwt.token_blacklist',
+    'chat',
+    'channels',
     
 ]
 
@@ -134,10 +139,23 @@ REST_FRAMEWORK = {
 
 from datetime import timedelta
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(days=1),
-    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
+    'ACCESS_TOKEN_LIFETIME': timedelta(days=100),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=100),
     'ROTATE_REFRESH_TOKENS': True,
     'BLACKLIST_AFTER_ROTATION': True,
 }
 
+ASGI_APPLICATION = 'multimedia_project.asgi.application'
+
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": [("127.0.0.1", 6379)],
+        },
+    },
+}
+
 AUTH_USER_MODEL='account.CustomUser'
+
+APPEND_SLASH = False

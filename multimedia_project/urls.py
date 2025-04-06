@@ -8,7 +8,8 @@ urlpatterns = [
     path('accounts/', include('account.urls')),
     path('blog/', include('blog.urls')),
     path('video/', include('video.urls')),
-    # path('auth/', include('rest_framework.urls'))
+    path('chat/', include('chat.urls')),
+    path('auth/', include('rest_framework.urls'))
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
