@@ -6,7 +6,7 @@ from django.contrib.auth.models import AnonymousUser
 from rest_framework_simplejwt.tokens import AccessToken
 from django.core.exceptions import ObjectDoesNotExist
 from .models import Conversation, Message
-from account.models import CustomUser  # Replace with your actual user model
+from account.models import CustomUser
 
 class ChatConsumer(AsyncWebsocketConsumer):
     async def connect(self):
